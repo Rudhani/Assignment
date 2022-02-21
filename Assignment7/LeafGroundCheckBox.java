@@ -8,7 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LeafGroundCheckBox {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver=new ChromeDriver();
 		driver.get("http://leafground.com/pages/checkbox.html");
@@ -19,13 +19,21 @@ public class LeafGroundCheckBox {
 		String text=driver.findElement(By.xpath("(//input[@type='checkbox'])[6]")).getText();
 		String text1="Selenium";
 		
-		if(text.equals(text1)) {
-			System.out.println("Selenium");
+		if(text1.equals(text)) {
+			System.out.println("correct");
 		}
 		else {
-			System.out.println("Selenium is not checked");
+			System.out.println("Not correct");
 		}
-			
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[8]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[9]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[10]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[11]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[12]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[13]")).click();
+		
+		driver.close();
 	}
 
 }
