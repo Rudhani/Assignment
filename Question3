@@ -1,0 +1,31 @@
+1.Inheritance:
+    The behaviour by which the super class method and variable are inherited to the subclass.
+    
+2.Type of inheritance:
+    * Single inheritance
+    * Multiplelevel inheritance
+    * Multiple inheritance
+    * Hierarchical inheritance
+    
+  3.Advantages of inheritance:
+    * Code Reuseability.
+    * Easier Maintain.
+    * Effective Management
+    
+  4.Example for selenium:
+    * ChromeDriver extends ChromiumDriver
+    * ChromiumDriver extends RemoteWebDriver
+    * RemoteWebDriver implements WebDriver
+    * WebDriver extends SearchContext
+    * Interface SearchContext
+    
+  5.Method Overloading:
+    * Same class and same method with different arguments.
+    * It is also called compiler polymorphism.
+    Eg.println();
+    
+  6.Method overriding:
+    * Different class with same method are called method overriding.
+    * It is also superclass is inherited to the childcalss.
+    * It is also called run time polymorphism.
+    Eg.SetFileDetector
