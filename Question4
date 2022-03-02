@@ -1,164 +1,98 @@
-1. Why is Java a platform independent language?
-   *Java language was developed in such a way that it does not depend on any hardware or software due to the fact that the compiler compiles the code and 
-   then converts it to platform-independent byte code which can be run on multiple systems.
-   *The only condition to run that byte code is for the machine to have a runtime environment (JRE) installed in it.
+1. What is Selenium? What are the different Selenium components? Explain about Selenium Webdriver.
+	Selenium is a portable software testing framework for web applications.
+		There are four components of Selenium.
+			*Selenium IDE
+			*RC
+			*WebDriver
+			*Grid
+	Selenium WebDriver is a collection of open source APIs which are used to automate the testing of a web application.
 
-2. What do you understand by an instance variable and a local variable?
-   *Instance variables are those variables that are accessible by all the methods in the class. They are declared outside the methods and inside the class. 
-    These variables describe the properties of an object and remain bound to it at any cost.
-    All the objects of the class will have their copy of the variables for utilization. If any modification is done on these variables, 
-    then only that instance will be impacted by it, and all other class instances continue to remain unaffected.
+2. How does Selenium communicate with the Web browsers?
+	*To communicate between server and client (browser), selenium web driver uses JSON. 
+	*JSON Wire Protocol is a REST API that transfers the information between HTTP servers. 
+	*Each Browser Driver has its own HTTP server.
+	
+3. What are the locators available to find an element using Selenium?
+	*By.id: find_element_by_id
+	*By.name attribute: find_element_by_name
+	*By.class name: find_element_by_class_name
+	*By.tag name: find_element_by_tag_name
+	*By.link text: find_element_by_link_text
+	*By.partial link text: find_element_by_partial_link_text
+	*By.cssSelector: find_element_by_css_Selector
+	*By.xpath: find_element_by_xpath
+	
+4. Why ID is preferable than X-Path?
+	*ID Selenium locators are unique for each element in the DOM. 
+	*Since IDs are unique for each element on the page.
+	*It is considered the fastest and safest method to locate elements.
+	
+5. How to select value in dropdown?
+	*A dropdown is represented by <select> tag and the options are represented by <option> tag.
+	*To select an option with its value we have to use the selectByValue method and pass the value attribute  
+	 to the option that we want to select as a parameter to that method.
 
-    Example:
-class Athlete {
-public String athleteName;
-public double athleteSpeed;
-public int athleteAge;
+6. What is the difference between Absolute Path and Relative Path?
+	*Absolute Xpath: It contains the complete path from the Root Element to the desire element.
+        *Relative Xpath: This is more like starting simply by referencing the element you want and go from the particular location.
+           You use always the Relative Path for testing of an element.
+	
+7. How to verify if the given check box is checked or not (it is not taught but you can explore) Try here: http://leafground.com/pages/checkbox.html
+	
+	public class LeafGroundCheckBox {
+	public static void main(String[] args) throws InterruptedException {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("http://leafground.com/pages/checkbox.html");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[1]")).click();
+		
+		String text=driver.findElement(By.xpath("//div[contains(text(),'Selenium')]")).getText();
+		String text1="Selenium";
+		
+		if(text1.equals(text)) {
+			System.out.println("True");
+		}
+		else {
+			System.out.println("False");
+		}
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[8]")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[9]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[10]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[11]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[12]")).click();
+		driver.findElement(By.xpath("(//input[@type='checkbox'])[13]")).click();
+		
+		driver.close();
+	}
 }
-      *Local variables are those variables present within a block, function, or constructor and can be accessed only inside them. 
-       The utilization of the variable is restricted to the block scope. Whenever a local variable is declared inside a method, 
-        the other class methods don’t have any knowledge about the local variable.
 
-    Example:
-public void athlete() {
-String athleteName;
-double athleteSpeed;
-int athleteAge;
-}
+8. Difference between System.setProperty and WebDriverManager?
+	*setProperty manages the initialization of the Chrome driver in the first step.
+          setProperty() method forms the basis for test case automation on any browser.
+	*WebDriverManager automates the browser setup in the Selenium code. 
+	  We just need to add its dependency through Maven or Gradle to download all the necessary drivers.
+	 
+9. Write the syntax for preceding and following x-paths.
+	*Preceding syntax:
+	 	XPath: //input[@id = 'u_0_2']//preceding::input
+	*Following syntax:
+		XPath: //input[@id = 'u_0_r']//following::input 
+		
+10. How to get an attribute value using Selenium WebDriver?
+	*The getAttribute() method helps to get the value of any attribute of a web element, which is returned as a String. 
+	*If an attribute has a Boolean value, the method returns either True or null. 
+	*Also, if there is no attribute, the method will return null.
 
-3. Can we overload main method in Java
-       Yes, we can have multiple methods with name “main” in a single class. However if we run the class, java runtime environment will look for main method with syntax
-       as public static void main(String args[]).
-       
-4. What are the access modifiers available in java
-       Java provides access control through public, private and protected access modifier keywords. When none of these are used, it’s called default access modifier.
-       A java class can only have public or default access modifier.
 
-5. How will you call a non static method from main method in java
-  	   Non static method are called by creating an Object for the class. For Example,
 
-     public class StaticTest {
-     public static void main(String args[]) {
-     	//Create Object for the class
-        StaticTest test = new StaticTest();
-     //call the method
-        test.printName();
-    }
- 
-     public void printName(){
-       System.out.println("TestLeaf");
-    }
-}
 
-6. Why String is immutable in java?
-         Immutable means unmodifiable or unchangeable. Once string object is created its data or state can't be changed but a new string object is created.
-     
-      For example:
-      	class immutability {  
-	      public static void main(String args[]){  
-	      String s="Test";  
- 	      s.concat(" Leaf");//concat() method appends the string at the end  
- 	      System.out.println(s);//will print Test because strings are immutable objects  
-	 }  
-	}  
 
-      From the above program, it is understood that two objects are created but "s" reference variable still refers to "Test" not to "Test Leaf".
 
-      But if we explicitely assign it to the reference variable, it will refer to "Test Leaf" object.For example:
-	    class immutability{  
-	    public static void main(String args[]){  
-	    String s="Test";  
- 	    s=s.concat(" Leaf"); 
- 	    System.out.println(s);//will print Test Leaf  
-	 }  
-	} 
 
-      Now it prints "Test LEaf". However still "Test" object is not modified.
-      Suppose there are 5 reference variables,all referes to one object "Test". 
-      If one reference variable changes the value of the object, it will be affected to all the reference variables. 
-      That is why string objects are immutable in java.
 
-7. What is the difference between concat() and concatenation  operator "+" ?
-      Both concat() and + are used to concatenate the strings but they have some differences which are described below:
 
-     a) Java.lang.NullPointerException :
 
-          concat() method if called on null String reference variable, will throw NullPointerException while this is not the case with + operator.
 
-     For example,
-
-      String s=null;
-      s.concat(“test”);
-      will throw NullPointerException.
-      While
-      String s=null;
-      System.out.println(s+”test”); 
-
-      Will print nulltest. While concatenating strings with + operator, a null reference variable changes to “null” (i..e a String containing null as its contents.). 
-      That’s why s becomes “null” and output is nulltest.
-
-    b) Number of arguments:
-       concat() takes only one argument while + can take any number of arguments.
-
-     Example,
-       "why"+"String"+"is"+"immutable"+"in"+"Java"
-
-    c) Type of Argument:
-      Signature of concat() method is:  public String concat(String str)
-      concat() only takes String type as argument. If any other type argument is passed to concat() it will give compile time error. Example,
-      s.concat(5);  // error as 5 is a non string value (integer)
-      s.concat(“5”);  // no error as here 5 is string (enclosed in “”)
-      While + can take any type of arguments. While doing concatenation non-string type argument is converted to String by using its toString() method
-
-     For example,
-       String s=”test”;
-       int i=5;
-       System.out.println(s+i);  // no error, will print test5.
-
-       Here int value 5 is a primitive value. It will be first converted to a string value as:
-         int------>Integer.toString(5)-------> a String representation of int value 5.
-
-    d) Creation of new String Object:
-         Java Strings are immutable. Whenever you try to change its contents, a new String object with changed contents is created instead of modifying 
-         the original String object.
-
-         But concat() returns new String object only when the length of argument string is > 0.
-         String s=”Test”;
-         String s1=”Leaf”
-         String s2=s.concat(s1); 
-
-        Here concat() returns a new String object whose reference is stored in s2. 
-        But if the length of argument string is 0, then concat() returns same original string instead of returning a new String object. Example,
-        String s=”test”;
-        String s1=s.concat(“”);
-
-        Here “” (an empty String with length 0) is passed as an argument to concat(). 
-        So no new String object created but reference to original string s is returned and strored in s1.
-        Therefore, s==s1  will give true here i.e both s and s1 are pointing to same objects.
-
-        While,
-          + creates a new String object every time it concatenates something, except when the concatenation is done at compile time.
-
-        For example,
-           String s=”Test”;
-           String s1=s+”Leaf”;
-
-           Here a new String object s1 is created with concatenated result (Test Leaf).
-              Similarly,
-              String s=”Test”;
-              String s1=”Leaf”;
-              String s2=s+s1;
-              Will create a new String object s2.
-              In both above example concatenation happen at run time.
-              But,
-              String s=”Test”+”Leaf”;
-              Will not create a not create a new String object because here concatenation will happen at compile time.
-              There will be only one String object with contents “Test Leaf”. Both String literals “Test” and “Leaf” will be discarded.
-
-        e) Performance
-              Performance wise concat() is consider better than + operator.
-              One of the reasons for this is that concat() returns a new String object only when length of its arguments is > 0.
-              
-              
-              
-              
