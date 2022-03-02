@@ -4,8 +4,11 @@
         The class that inherits the properties is known as the sub-class or the child class.
         
 2. What are the types of inheritance?
-        There are three types of inheritance in java: Single, Multilevel and Hierarchical.
-        Multiple and Hybrid inheritance is supported through interface only.
+        There are three types of inheritance in java.
+        *Single
+        *Multilevel
+        *Hierarchical
+        *Multiple and Hybrid inheritance is supported through interface only.
         
 3. What are the advantages in inheritance?
         * Code Reusability
