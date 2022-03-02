@@ -1,31 +1,55 @@
-1.Inheritance:
-    The behaviour by which the super class method and variable are inherited to the subclass.
-    
-2.Type of inheritance:
-    * Single inheritance
-    * Multiplelevel inheritance
-    * Multiple inheritance
-    * Hierarchical inheritance
-    
-  3.Advantages of inheritance:
-    * Code Reuseability.
-    * Easier Maintain.
-    * Effective Management
-    
-  4.Example for selenium:
-    * ChromeDriver extends ChromiumDriver
-    * ChromiumDriver extends RemoteWebDriver
-    * RemoteWebDriver implements WebDriver
-    * WebDriver extends SearchContext
-    * Interface SearchContext
-    
-  5.Method Overloading:
-    * Same class and same method with different arguments.
-    * It is also called compiler polymorphism.
-    Eg.println();
-    
-  6.Method overriding:
-    * Different class with same method are called method overriding.
-    * It is also superclass is inherited to the childcalss.
-    * It is also called run time polymorphism.
-    Eg.SetFileDetector
+1.What is oops stands for?
+        OOPs stands for Object Oriented Programming Language.
+
+2.What is Polymorphism? explain types?
+        It describes the concepts that you can access objects of differnt types through the same interface.
+    TYPES:
+        1.Static Binding (OR) Compile Time
+            eg:Method OverLoading
+        2.Dynamic Binding (OR) Run Time
+            eg.Method OverRiding
+
+3.what is interface and example in selenium,java?
+        An interface is a Design(or)Blueprint in a JAVA class.It has no implementation.We cannot create object for interface
+            eg:Selinium:WebDriver  : ChromeDriver driver= new ChromeDriver();
+               Webelements: element.click(),element.sendKeys()
+                    Java: public interface AndroidDesign{
+                          public void samsung();
+                          }
+      
+4.what is abstarct class and example?  
+         A class which is declered using "abstract" keywordd is known as abstract class.It can have abstract method(Methods Without Body) 
+         as well as Concrete methods(Regular Methods With Body).
+         Simply We Say it is Partially Unimplemented method.
+
+            eg:
+                public abstract class SBI implements PNB {
+	                public void itLoan() {
+		                System.out.println("ItLoan = 5000");
+	                }
+	            public abstract void bankBalance();
+	                public abstract void maximumLoanAmount();
+                }
+
+5.Difference between multiple inheritance and multilevel inheritance
+        Multiple Inheritance: More than one parent inheritance .It is not Possible in Java Class. Where a class can inherit properties of more than one parent class.       
+        Multilevel Inheritance: More than one inheritance like Grand parent to Parent to Child.when a class extends a class,which extends a another class.
+
+6.Is multiple inheritance possible in java?
+        No it not possible in Java class but It possible in Interface.
+
+7.What is keyword for using inheritance ?
+        The are Two keywords used in Inheritance
+            1.extends (For BASE SAME eg.both having class).
+            2.implements(For BASE NOT SAME eg.one is having interface another is having class).
+
+8.what is the keyword to connect interface and class?
+        "Implements" keyword is used to connect the interface and class.
+
+9.what is difference between class and interface?
+        CLASS : A class can be instantiated (that means implemented method) i.e, objects of a class can be created. Classes does not support multiple inheritance.    
+        INTERFACE : An Interface cannot be instantiated (that means unimplemented method) i.e, objects cannot be created. Interface supports multiple inheritance
+
+10.what is difference between class and abstract class?
+        CLASS : Class is a blueprint or prototype from which object and methods are created.A class is a fully implemented method.
+        ABSTRACT CLASS : If a class using a keyword Abstract then it is known as Abstract class. An abstract class is an Partially implimented method. 
