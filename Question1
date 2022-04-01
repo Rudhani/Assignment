@@ -21,7 +21,8 @@
             We can call the non-static method from static method by creating a instance of the class belongs to the method.
 
 6.Why String is immutable in java?
-            The String is immutable in Java because of the security, synchronization and concurrency, caching, and class loading. The reason of making string final is to destroy the immutability and to not allow others to extend it.
+            The String is immutable in Java because of the security, synchronization and concurrency, caching, and class loading. 
+            The reason of making string final is to destroy the immutability and to not allow others to extend it.
             The String objects are cached in the String pool, and it makes the String immutable.
                    
 7.What is the difference between concat() and concatenation  operator "+" ?
